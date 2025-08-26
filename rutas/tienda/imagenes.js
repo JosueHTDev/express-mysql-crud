@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
+const db = require('../../db');
 // Obtener imágenes de un producto
 router.get('/:producto_id', async (req, res) => {
     const { producto_id } = req.params;

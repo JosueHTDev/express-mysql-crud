@@ -1,12 +1,11 @@
-// db.js
-const mysql = require('mysql2');
-// Crear pool de conexiones para manejar múltiples requests
+// Este archivo maneja la conexión a la base de datos MySQL
+const mysql = require("mysql2/promise"); // Importamos mysql2 (con soporte promesas
+// Creamos un pool de conexiones (mejor que una sola conexión fija)
 const pool = mysql.createPool({
-host: 'localhost',
-user: 'root', // tu usuario de MySQL
-password: '', // tu contraseña de MySQL
-database: 'tienda'
+    host: "localhost", // Servidor MySQL
+    user: "root", // Usuario MySQL
+    password: "", // Contraseña (cambiar según tu config)
+    database: "api_jwt_demo" // Nombre de la BD que creamos
 });
-// Promisify para usar async/await
-const promisePool = pool.promise();
-module.exports = promisePool;
+// Exportamos el pool para usarlo en otros archivos
+module.exports = pool;
